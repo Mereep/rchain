@@ -53,11 +53,11 @@ fn main() {
     // let's clone the current blockchain before tempering
     let mut bc_attack_1 = bc.clone();
     // get the transaction as mutable (second block, first transaction; the token transfer)
-    let mut transaction_data= bc_attack_1.blocks[1].transactions[0].borrow_mut();
+    let transaction_data= bc_attack_1.blocks[1].transactions[0].borrow_mut();
 
     // change the amount value of the transaction INSIDE the chain
     match transaction_data.record.borrow_mut() {
-        &mut TransactionData::TransferTokens {ref to, ref mut amount} => {
+        &mut TransactionData::TransferTokens {to:_, ref mut amount} => {
             *amount = 100; // Actually change the value in place
         },
 
@@ -67,18 +67,18 @@ fn main() {
     println!("Changed transaction: {:?}", transaction_data.record);
 
     // Will print an error, since the blocks hash changes for the
-    println!("Is Blockchain still valid? {:#?}", bc_attack_1.check_validity());
+    println!("Is the Blockchain still valid? {:#?}", bc_attack_1.check_validity());
 
     // Attack II: Changing transaction + updating the hash (increasing initial tokens in create
     // user action)
     let mut bc_attack_2 = bc.clone();
 
     // Alice tokens
-    let mut transaction_data= bc_attack_2.blocks[0].transactions[1].borrow_mut();
+    let transaction_data= bc_attack_2.blocks[0].transactions[1].borrow_mut();
 
     // change tokens
     match transaction_data.record.borrow_mut() {
-        &mut TransactionData::CreateTokens {ref receiver, ref mut amount} => {
+        &mut TransactionData::CreateTokens {receiver: _, ref mut amount} => {
             *amount = 100_000_000_000; // Let's dont be small on that
         },
         _ => {} // We know that that recors is a Token Create Action so we ignore the rest
@@ -87,14 +87,14 @@ fn main() {
     // If we execute now, we'll see the same error as above, hashes dont match (this time 1st block)
 
     // Will print an error, since the blocks hash changes for the
-    println!("Is Blockchain still valid? {:#?}", bc_attack_2.check_validity());
+    println!("Is the Blockchain still valid? {:#?}", bc_attack_2.check_validity());
 
     // But alice was smart, she also updated the first blocks' hash
     bc_attack_2.blocks[0].update_hash();
 
     // So the hash is correct now, however, block2 points now to sth which does not exists
     // Again, the blockchain is invalid but for a different reason
-    println!("Is Blockchain still valid? {:#?}", bc_attack_2.check_validity());
+    println!("Is the Blockchain still valid? {:#?}", bc_attack_2.check_validity());
 
 
 }
