@@ -53,7 +53,7 @@ fn main() {
     // let's clone the current blockchain before tempering
     let mut bc_attack_1 = bc.clone();
     // get the transaction as mutable (second block, first transaction; the token transfer)
-    let transaction_data= bc_attack_1.blocks[1].transactions[0].borrow_mut();
+    let transaction_data = bc_attack_1.blocks[1].transactions[0].borrow_mut();
 
     // change the amount value of the transaction INSIDE the chain
     match transaction_data.record.borrow_mut() {
@@ -81,7 +81,7 @@ fn main() {
         &mut TransactionData::CreateTokens {receiver: _, ref mut amount} => {
             *amount = 100_000_000_000; // Let's dont be small on that
         },
-        _ => {} // We know that that recors is a Token Create Action so we ignore the rest
+        _ => {} // We know that that record is a Token Create Action so we ignore the rest
     }
 
     // If we execute now, we'll see the same error as above, hashes dont match (this time 1st block)
