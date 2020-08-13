@@ -34,10 +34,10 @@ pub trait WorldState {
     /// Will bring us all registered user ids
     fn get_user_ids(&self) -> Vec<String>;
 
-    /// Will return an account given it's id if is available (mutable)
+    /// Will return an account given it id if is available (mutable)
     fn get_account_by_id_mut(&mut self, id: &String) -> Option<&mut Account>;
 
-    /// Will return an account given it's id if is available
+    /// Will return an account given it id if is available
     fn get_account_by_id(&self, id: &String) -> Option<&Account>;
 
     /// Will add a new account

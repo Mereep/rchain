@@ -5,6 +5,3 @@ of blockchains which will be explained in detail in the accompanied tutorial.doc
 HTML Documentation: [https://htmlpreview.github.io/?https://github.com/Mereep/rchain/blob/master/target/doc/rchain_v1/index.html][Github Preview]
 
 See **Blockchain Article.pdf** for details.
-
-
-[asdads]: https://www.google.com

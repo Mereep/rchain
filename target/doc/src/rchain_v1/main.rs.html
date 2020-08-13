@@ -154,7 +154,7 @@
     <span class="comment">// let&#39;s clone the current blockchain before tempering</span>
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">bc_attack_1</span> <span class="op">=</span> <span class="ident">bc</span>.<span class="ident">clone</span>();
     <span class="comment">// get the transaction as mutable (second block, first transaction; the token transfer)</span>
-    <span class="kw">let</span> <span class="ident">transaction_data</span><span class="op">=</span> <span class="ident">bc_attack_1</span>.<span class="ident">blocks</span>[<span class="number">1</span>].<span class="ident">transactions</span>[<span class="number">0</span>].<span class="ident">borrow_mut</span>();
+    <span class="kw">let</span> <span class="ident">transaction_data</span> <span class="op">=</span> <span class="ident">bc_attack_1</span>.<span class="ident">blocks</span>[<span class="number">1</span>].<span class="ident">transactions</span>[<span class="number">0</span>].<span class="ident">borrow_mut</span>();
 
     <span class="comment">// change the amount value of the transaction INSIDE the chain</span>
     <span class="kw">match</span> <span class="ident">transaction_data</span>.<span class="ident">record</span>.<span class="ident">borrow_mut</span>() {
@@ -182,7 +182,7 @@
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">TransactionData</span>::<span class="ident">CreateTokens</span> {<span class="ident">receiver</span>: <span class="kw">_</span>, <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">amount</span>} <span class="op">=</span><span class="op">&gt;</span> {
             <span class="kw-2">*</span><span class="ident">amount</span> <span class="op">=</span> <span class="number">100_000_000_000</span>; <span class="comment">// Let&#39;s dont be small on that</span>
         },
-        <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> {} <span class="comment">// We know that that recors is a Token Create Action so we ignore the rest</span>
+        <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> {} <span class="comment">// We know that that record is a Token Create Action so we ignore the rest</span>
     }
 
     <span class="comment">// If we execute now, we&#39;ll see the same error as above, hashes dont match (this time 1st block)</span>
