@@ -23,15 +23,15 @@ w\:* {behavior:url(#default#VML);}
   <o:Author>ms727817</o:Author>
   <o:LastAuthor>ms727817</o:LastAuthor>
   <o:Revision>2</o:Revision>
-  <o:LastPrinted>2020-08-18T00:01:00Z</o:LastPrinted>
-  <o:Created>2020-08-18T00:02:00Z</o:Created>
-  <o:LastSaved>2020-08-18T00:02:00Z</o:LastSaved>
+  <o:LastPrinted>2020-08-19T11:53:00Z</o:LastPrinted>
+  <o:Created>2020-08-19T11:55:00Z</o:Created>
+  <o:LastSaved>2020-08-19T11:55:00Z</o:LastSaved>
   <o:Pages>24</o:Pages>
-  <o:Words>8618</o:Words>
-  <o:Characters>54297</o:Characters>
+  <o:Words>8623</o:Words>
+  <o:Characters>54332</o:Characters>
   <o:Lines>452</o:Lines>
   <o:Paragraphs>125</o:Paragraphs>
-  <o:CharactersWithSpaces>62790</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>62830</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -1740,8 +1740,8 @@ is a lot to cover. When following up, you will have a natural <b
 style='mso-bidi-font-weight:normal'>understanding of blockchains</b> by
 creating an <b style='mso-bidi-font-weight:normal'>extensible blockchain
 prototype</b> and learn some usable basics in Rust. Who knows what that might
-be good for in future? But don't worry, I will try to guide you step by step
-through the whole thing and instead of just dropping code snippets.<o:p></o:p></span></h1>
+be good for in the future? But don't worry, I will try to guide you step by
+step through the whole thing instead of just dropping code snippets.<o:p></o:p></span></h1>
 
 <h1><span lang=EN-US style='mso-ansi-language:EN-US'>Prerequisites &amp;
 Audience<o:p></o:p></span></h1>
@@ -2204,7 +2204,7 @@ lang=EN-US style='mso-ansi-language:EN-US'>.<o:p></o:p></span></p>
 
 <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>The <i
 style='mso-bidi-font-style:normal'>blockchain</i> directory within the project is
-a <b style='mso-bidi-font-weight:normal'>module</b>. This is Rust’s way to
+a <b style='mso-bidi-font-weight:normal'>module</b>. This is Rusts way to
 organize your source code into multiple files and directories. Again, this is
 conceptionally similar to Python’s modules (without you having to include a <i
 style='mso-bidi-font-style:normal'>__init__.py</i> file). You can happily put
@@ -2399,7 +2399,7 @@ shipped with its own </span><a
 href="https://doc.rust-lang.org/cargo/commands/cargo-doc.html"><span
 lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>documentation
 builder</span></a><span lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:
-bold'>, which generates a nice <b>web interface</b> for <b>documenting whole
+bold'>, which generates a nice <b>web interface</b> <b>documenting whole
 project</b> and all of its dependencies. Everything that is marked with “///”
 will be included as a description within the web interface. You can invoke the
 builder by typing<b> cargo doc </b>within the main folder.<o:p></o:p></span></p>
@@ -2681,7 +2681,7 @@ style='mso-bidi-font-weight:normal'>basically define a behavior </b>or<b
 style='mso-bidi-font-weight:normal'> interface </b><span style='mso-bidi-font-weight:
 bold'>which can be shared across multiple objects. This particular interface
 really just defines some functionality which an object should provide in order
-to be a <i>WorldState</i>. Our Blockchain will implement that trait later. A database
+to be a <i>WorldState</i>. Our blockchain will implement that trait later. A database
 backend could do also, or a JSON backend or something else. This functionality
 is not at all specific to block chains. <o:p></o:p></span></span></p>
 
@@ -2700,7 +2700,7 @@ mso-border-bottom-themecolor:accent1;padding:10.0pt 0cm 10.0pt 0cm;margin-left:
 43.2pt;margin-right:43.2pt'>
 
 <p class=MsoIntenseQuote style='margin-top:18.0pt;margin-right:0cm;margin-bottom:
-18.0pt;margin-left:0cm'><span lang=EN-US style='mso-ansi-language:EN-US'>Rust’s
+18.0pt;margin-left:0cm'><span lang=EN-US style='mso-ansi-language:EN-US'>Rusts
 types cannot be set to null <o:p></o:p></span></p>
 
 </div>
@@ -2826,29 +2826,30 @@ mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-hansi-the
 minor-latin;mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
 mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA;
 mso-bidi-font-weight:bold'>[13]</span></span><![endif]></span></span></a> that
-tidies up the mess we leave in the memory. And as you can guess, things get
-complicated there. We will not dig into this. Whether can this article provide
-enough insides (it would fill whole other articles) nor do I feel Rust-mature
+tidies up the mess we leave in the memory. And as you can guess, things a bit
+involved there. We will not dig into this. Whether can this article provide
+enough insights (it would fill whole other articles) nor do I feel Rust-mature
 enough to explain that. For now: this specific lifetime specifier just means
 that we want to <i style='mso-bidi-font-style:normal'>return a pointer to a
 string which is baked into the binary</i> (thus the value is <i>static</i> for
-the lifetime of the whole program).</span><span lang=EN-US style='font-size:
+the lifetime of the whole program, </span>i.e., that value never dies<span
+lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'></span>).</span><span
+lang=EN-US style='font-size:9.0pt;line-height:107%;font-family:Consolas;
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Courier New";
+color:#080808;mso-ansi-language:EN-US;mso-fareast-language:DE'> </span><span
+lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>The last
+thing to note here is that </span><span lang=EN-US style='font-size:9.0pt;
+line-height:107%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:"Courier New";color:#BF4F24;mso-ansi-language:EN-US;
+mso-fareast-language:DE'>Result</span><span lang=EN-US style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'> and </span><span lang=EN-US style='font-size:
 9.0pt;line-height:107%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Courier New";color:#080808;mso-ansi-language:EN-US;
-mso-fareast-language:DE'> </span><span lang=EN-US style='mso-ansi-language:
-EN-US;mso-bidi-font-weight:bold'>The last thing to note here is that </span><span
-lang=EN-US style='font-size:9.0pt;line-height:107%;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Courier New";
-color:#BF4F24;mso-ansi-language:EN-US;mso-fareast-language:DE'>Result</span><span
-lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'> and </span><span
-lang=EN-US style='font-size:9.0pt;line-height:107%;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Courier New";
-color:#BF4F24;mso-ansi-language:EN-US;mso-fareast-language:DE'>Option</span><span
-lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'> are
-technically nothing but common Rust Enumerations. We will see soon that Rust
-Enumerations can carry variable data within their variants, which also enables
-this exact use cas. Due to the frequent usage, those Enums are globally
-available in every module per default.<o:p></o:p></span></p>
+mso-bidi-font-family:"Courier New";color:#BF4F24;mso-ansi-language:EN-US;
+mso-fareast-language:DE'>Option</span><span lang=EN-US style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'> are technically nothing but common Rust
+Enumerations. We will see soon that Rust Enumerations can carry variable data
+within their variants, which also enables this exact use cas. Due to the
+frequent usage, those Enums are globally available in every module per default.<o:p></o:p></span></p>
 
 <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:
 bold'>To finish that chapter, notice one uncommon keyword we did not cover: </span><span
@@ -4302,8 +4303,8 @@ EN-US'>we actually create a </span><span lang=EN-US style='font-size:9.0pt;
 line-height:107%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
 mso-bidi-font-family:"Courier New";color:#794938;mso-ansi-language:EN-US;
 mso-fareast-language:DE'>&amp;str</span><span lang=EN-US style='mso-ansi-language:
-EN-US'> type (pointer to fixed length string somewhere in memory) but the
-result wants to store a String (owned possibly mutable String, </span><a
+EN-US'> type (i.e., a pointer to fixed length string somewhere in memory) but
+the result wants to store a String (i.e., an owned possibly mutable String, </span><a
 href="https://www.ameyalokare.com/rust/2017/10/12/rust-str-vs-String.html"><span
 lang=EN-US style='mso-ansi-language:EN-US'>which is not exactly the same</span></a><span
 lang=EN-US style='mso-ansi-language:EN-US'>), so we need to convert those. <o:p></o:p></span></p>
@@ -4995,13 +4996,16 @@ lang=EN-US style='mso-ansi-language:EN-US'> dictionary of the </span><span
 lang=EN-US style='mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
 "Courier New";color:#BF4F24;mso-ansi-language:EN-US;mso-fareast-language:DE'>Blockchain
 </span><span lang=EN-US style='mso-ansi-language:EN-US'>struct. Remember, when
-we dealt with the world state we modeled those specifics away and said our
+we dealt with the world state we modeled those specifics away and said the
 blockchain should implement a specific interface (the trait </span><span
 lang=EN-US style='mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
 "Courier New";color:#BF4F24;mso-ansi-language:EN-US;mso-fareast-language:DE'>WorldState</span><span
 lang=EN-US style='mso-ansi-language:EN-US'>) instead, which just describes the
-functionality the backend (in that case the blockchain) should support? Our
-Blockchain struct implements that interface like that:<o:p></o:p></span></p>
+functionality the backend (in that case the blockchain) should support. The </span><span
+style='font-size:10.0pt;line-height:107%;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Courier New";color:#BF4F24;mso-fareast-language:
+DE'>Blockchain</span><span lang=EN-US style='mso-ansi-language:EN-US'> struct
+implements that interface like that:<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
 background:#F9F9F9'><span style='font-size:10.0pt;font-family:Consolas;
